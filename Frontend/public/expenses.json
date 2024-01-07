@@ -1,0 +1,28 @@
+{
+    "2019": [
+      { "id": 123456, "title": "Groceries", "amount": 150, "date": "Sat Jan 05 2019 00:00:00 GMT+0530 (India Standard Time)" },
+      { "id": 234567, "title": "Utilities", "amount": 200, "date": "Fri Mar 15 2019 00:00:00 GMT+0530 (India Standard Time)" },
+      { "id": 345678, "title": "Dining Out", "amount": 120, "date": "Mon Jun 10 2019 00:00:00 GMT+0530 (India Standard Time)" }
+    ],
+    "2020": [
+      { "id": 456789, "title": "Home Decor", "amount": 250, "date": "Sat Feb 08 2020 00:00:00 GMT+0530 (India Standard Time)" },
+      { "id": 567890, "title": "Electronics", "amount": 300, "date": "Tue May 19 2020 23:30:00 GMT+0530 (India Standard Time)" },
+      { "id": 678901, "title": "Vacation", "amount": 1000, "date": "Tue Sep 01 2020 00:00:00 GMT+0530 (India Standard Time)" }
+    ],
+    "2021": [
+      { "id": 789012, "title": "Fitness Membership", "amount": 30, "date": "Fri Mar 05 2021 00:00:00 GMT+0530 (India Standard Time)" },
+      { "id": 890123, "title": "Clothing", "amount": 80, "date": "Wed Jul 14 2021 23:30:00 GMT+0530 (India Standard Time)" },
+      { "id": 901234, "title": "Books", "amount": 50, "date": "Fri Oct 01 2021 23:30:00 GMT+0530 (India Standard Time)" }
+    ],
+    "2022": [
+      { "id": 123345, "title": "Health Insurance", "amount": 350, "date": "Sun Jan 02 2022 00:00:00 GMT+0530 (India Standard Time)" },
+      { "id": 234456, "title": "Outdoor Equipment", "amount": 200, "date": "Wed Apr 13 2022 23:30:00 GMT+0530 (India Standard Time)" },
+      { "id": 345567, "title": "Car Maintenance", "amount": 150, "date": "Mon Aug 08 2022 00:00:00 GMT+0530 (India Standard Time)" }
+    ],
+    "2023": [
+      { "id": 456678, "title": "Renovation", "amount": 800, "date": "Fri Mar 10 2023 00:00:00 GMT+0530 (India Standard Time)" },
+      { "id": 567789, "title": "Hobbies", "amount": 100, "date": "Thu Jun 22 2023 00:00:00 GMT+0530 (India Standard Time)" },
+      { "id": 678890, "title": "Subscription Services", "amount": 50, "date": "Sat Oct 15 2023 23:30:00 GMT+0530 (India Standard Time)" }
+    ]
+  }
+  

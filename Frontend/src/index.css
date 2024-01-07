@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Noto Sans JP", sans-serif;
+}
+body {
+  margin: 0;
+  background-color: #463253;
+  background: linear-gradient( #fe7763, #fc3a5d, #463253);
+	background-size: 400% 400%;
+	height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  justify-content: center;
+  min-width: 420px;
+}
+
+#root {
+  height: 100%;
+  overflow: auto;
+  margin-bottom: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+}
