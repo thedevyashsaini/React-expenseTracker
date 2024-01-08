@@ -40,7 +40,7 @@
   border-radius: 12px;
 }
 
-@media (min-width: 580px) {
+@media (min-width: 900px) {
   .expense-item__description {
     flex-direction: row;
     align-items: center;

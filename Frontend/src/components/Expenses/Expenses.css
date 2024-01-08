@@ -28,3 +28,45 @@ body {
 		background-position: 100% 100%;
 	}
 }
+
+@media (min-width: 754px) and (max-width: 830) {
+  .expenses-cover {
+    max-height: calc(100vh - 609px);
+  }
+}
+
+@media (min-width: 690px) and (max-width: 754px) {
+  .expenses-cover {
+    max-height: calc(100vh - 577px);
+  }
+}
+
+@media (min-width: 618px) and (max-width: 690px) {
+  .expenses-cover {
+    max-height: calc(100vh - 543px);
+  }
+}
+
+@media (min-width: 578px) and (max-width: 618px) {
+  .expenses-cover {
+    max-height: calc(100vh - 509px);
+  }
+}
+
+@media (min-width: 525px) and (max-width: 578px) {
+  .expenses-cover {
+    max-height: calc(100vh - 501px);
+  }
+}
+
+@media (min-width: 466px) and (max-width: 524px) {
+  .expenses-cover {
+    max-height: calc(100vh - 472px);
+  }
+}
+
+@media (min-width: 200px) and (max-width: 465px) {
+  .expenses-cover {
+    max-height: calc(100vh - 442px);
+  }
+}
