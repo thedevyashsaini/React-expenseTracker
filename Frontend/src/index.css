@@ -22,7 +22,15 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   justify-content: center;
-  min-width: 420px;
+  min-width: 400px;
+}
+
+body.in {
+	animation: gradientIn 3s forwards;
+}
+
+body.out {
+  animation: gradientOut 3s forwards;
 }
 
 #root {
@@ -45,4 +53,23 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 6px;
+}
+
+@keyframes gradientIn {
+	0% {
+		background-position: 0% 0%;
+	}
+	100% {
+		background-position: 100% 100%;
+	}
+}
+
+@keyframes gradientOut {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+  
 }

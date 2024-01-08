@@ -9,9 +9,12 @@ const Auth = (props) => {
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
   const [emptyPass, setEmptyPass] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+  const setLoading = (value) => {
+    props.isLoading(value);
+  };
 
   const nameChangeHandler = (event) => {
     setName(event.target.value);
@@ -76,19 +79,19 @@ const Auth = (props) => {
       <div className="login-card-content">
         <form onSubmit={props.isLogin ? loginHandler : signupHandler}>
             <div className="header">
-            <div className={loading?"logo loading":"logo"} >
+            <div className={props.loading ? "logo load" : "logo"} >
                 <img
                 src="https://itc.gymkhana.iitb.ac.in/wncc/assets/images/logo-large.png"
                 alt="logo"
                 style={{ width: "80%" }}
                 />
             </div>
-            <h2 style={{display: loading && !props.inValid.error ? "none" : ""}}>
+            <h2 style={{display: props.loading ? "none" : ""}}>
                 Expense<span className="highlight">Tracker</span>
             </h2>
-            <p style={{color: "#ffb9b9", display: props.inValid.error ? "block" : "none"}}>{props.inValid.message}</p>
+            <p style={{color: "#ffb9b9", display: !props.loading && props.inValid.error ? "block" : "none"}}>{props.inValid.message}</p>
             </div>
-            <div className="form" style={{display: loading && !props.inValid.error ? "none" : ""}}>
+            <div className="form" style={{display: props.loading ? "none" : ""}}>
             <div className="form-field name" style={{display: props.isLogin ? "none" : ""}}>
                 <div className="icon">
                 <i className="far fa-user"></i>
@@ -147,7 +150,7 @@ const Auth = (props) => {
             </div>
         </form>
       </div>
-      <div className="login-card-footer" style={{display: loading && !props.inValid.error ? "none" : ""}}>
+      <div className="login-card-footer" style={{display: props.loading ? "none" : ""}}>
         <span className="btn" style={{"display": props.isLogin ? "" : "none"}}>Forgot password?</span>
       </div>
     </div>

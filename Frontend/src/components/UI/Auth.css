@@ -75,7 +75,7 @@ h3 {
 button.login {
   background: white;
   display: block;
-  color: #510674;
+  color: #d61e2d;
   width: 100%;
   border: none;
   border-radius: 40px;
@@ -96,7 +96,7 @@ button.login {
 .form-field .icon {
   position: absolute;
   background: white;
-  color: #510674;
+  color: #d61e2d;
   left: 0;
   top: 0;
   display: flex;
@@ -144,7 +144,7 @@ button.login {
 }
 
 .form-field input:hover::placeholder {
-  color: #510674;
+  color: #d61e2d;
 }
 
 input.invalid {
@@ -152,7 +152,7 @@ input.invalid {
   animation-fill-mode: forwards;
 }
 
-.logo.loading {
+.logo.load {
     animation: loading 4s infinite;
 }
 

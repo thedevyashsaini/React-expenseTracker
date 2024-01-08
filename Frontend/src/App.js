@@ -14,6 +14,8 @@ const App = () => {
   const [loginError, setAuthError] = useState({ error: false, message: "" });
   const [isLogin, setIsLogin] = useState(true);
   const [alert, setAlert] = useState({ type: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [retry, setRetry] = useState(0);
 
   const fetchExpenseHandler = async () => {
     const result = await fetchExpense(cookies);
@@ -22,14 +24,22 @@ const App = () => {
     } else {
       setAlert({
         type: "Error",
-        message: "Error fetching expenses: " + result.message,
+        message: "Error: " + result.message,
       });
+      if (result.errorCode !== undefined) {
+        if (result.errorCode === "fuck") {
+          onLogout();
+        }
+      }
       console.log(result.message);
     }
   };
 
   if (cookies.user && expenses === null) {
-    fetchExpenseHandler();
+    if (retry <= 2) {
+      fetchExpenseHandler();
+      setRetry((retry) => {return retry+1})
+    }
   }
 
   const loginHandler = (username, password) => {
@@ -50,15 +60,22 @@ const App = () => {
           const expires = new Date();
           expires.setFullYear(expires.getFullYear() + 10);
           setTimeout(() => {
+            setLoading(false);
             setCookie("user", result.token, { path: "/", expires });
           }, 2000);
         } else {
           console.log(result.message);
+          setTimeout(() => {
+            setLoading(false);
+          }, 2000);
           setAuthError({ error: true, message: result.message });
         }
       })
       .catch((error) => {
         console.log("Error:", error);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
         setAuthError({ error: true, message: error });
       });
   };
@@ -86,15 +103,22 @@ const App = () => {
           const expires = new Date();
           expires.setFullYear(expires.getFullYear() + 10);
           setTimeout(() => {
+            setLoading(false);
             setCookie("user", result.token, { path: "/", expires });
           }, 2000);
         } else {
           console.log(result.message);
+          setTimeout(() => {
+            setLoading(false);
+          }, 2000);
           setAuthError({ error: true, message: result.message });
         }
       })
       .catch((error) => {
         console.log("Error:", error);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
         setAuthError({ error: true, message: error });
       });
   };
@@ -103,7 +127,12 @@ const App = () => {
     const year = new Date(expense.date).getFullYear();
     const result = await addExpense(expense, cookies);
     if (!result.success) {
-      setAlert({ type: "Error", message: "Error adding: " + result.message });
+      setAlert({ type: "Error", message: "Error: " + result.message });
+      if (result.errorCode !== undefined) {
+        if (result.errorCode === "fuck") {
+          onLogout();
+        }
+      }
       console.log(result.message);
       return;
     }
@@ -127,6 +156,11 @@ const App = () => {
     const result = await deleteExpense(id, year, cookies);
     if (!result.success) {
       setAlert({ type: "Error", message: "Error deleting: " + result.message });
+      if (result.errorCode !== undefined) {
+        if (result.errorCode === "fuck") {
+          onLogout();
+        }
+      }
       console.log(result.message);
       return;
     }
@@ -144,6 +178,22 @@ const App = () => {
     setAlert({ type: "", message: message });
   };
 
+  const onLogout = () => {
+    document.getElementsByTagName("body")[0].classList.add("out");
+    setTimeout(() => {
+      document.getElementsByTagName("body")[0].classList.remove("in");
+      setCookie("user", "", { path: "/" });
+      setExpenses(null);
+      setAuthError({ error: false, message: "" });
+      setIsLogin(true);
+      document.getElementById("root").style.setProperty("height", "100%")
+    }, 100);
+  };
+
+  const loadingHandler = (loading) => {
+    setLoading(loading);
+  };
+
   return (
     <CookiesProvider>
       {alert.type !== "" ? (
@@ -159,11 +209,15 @@ const App = () => {
           isLogin={isLogin}
           inValid={loginError}
           onChangeClick={changeClickHandler}
+          isLoading={loadingHandler}
+          loading={loading}
         />
       ) : (
         <div>
+          {document.getElementsByTagName("body")[0].classList.remove("out")}
+          {document.getElementsByTagName("body")[0].classList.add("in")}
           {document.getElementById("root").style.setProperty("height", "calc(100% - 140px)")}
-          <MainPageHeader />
+          <MainPageHeader onLogout={onLogout}/>
           <NewExpense onNewExpenseData={addExpenseHandler} />
           {(expenses != null && Object.keys(expenses).length) > 0 ? (
             <Expenses expenses={expenses} onDeleteClick={deleteHandler} />

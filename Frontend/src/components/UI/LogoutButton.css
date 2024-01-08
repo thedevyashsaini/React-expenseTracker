@@ -1,0 +1,8 @@
+.logout {
+  background: #ffffff1a;
+  font-size: large;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 20px;
+  cursor: pointer;
+}

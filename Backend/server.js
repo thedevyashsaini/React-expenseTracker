@@ -143,12 +143,38 @@ app.post("/api/v1/expense/fetch/", async (req, res) => {
           .status(200)
           .json({ message: "Success", expenses: expenses, success: true });
       } else {
-        res.status(200).json({ message: "Session Expired!", success: false });
+        res
+          .status(200)
+          .json({
+            message: "Session Expired!",
+            success: false,
+            errorCode: "fuck",
+          });
       }
+    } else {
+      res
+        .status(200)
+        .json({
+          message: "Session Expired!",
+          success: false,
+          errorCode: "fuck",
+        });
     }
   } catch (err) {
-    console.log(err);
-    res.status(200).json({ message: "Internal Server Error", success: false });
+    if (err.name === "JsonWebTokenError") {
+      res
+        .status(200)
+        .json({
+          message: "Session Expired!",
+          success: false,
+          errorCode: "fuck",
+        });
+    } else {
+      console.log(err);
+      res
+        .status(200)
+        .json({ message: "Internal Server Error", success: false });
+    }
   }
 });
 
@@ -191,12 +217,38 @@ app.post("/api/v1/expense/insert/", async (req, res) => {
             .json({ message: "Internal Server Error", success: false });
         }
       } else {
-        res.status(200).json({ message: "Session Expired!", success: false });
+        res
+          .status(200)
+          .json({
+            message: "Session Expired!",
+            success: false,
+            errorCode: "fuck",
+          });
       }
+    } else {
+      res
+        .status(200)
+        .json({
+          message: "Session Expired!",
+          success: false,
+          errorCode: "fuck",
+        });
     }
   } catch (err) {
-    console.log(err);
-    res.status(200).json({ message: "Internal Server Error", success: false });
+    if (err.name === "JsonWebTokenError") {
+      res
+        .status(200)
+        .json({
+          message: "Session Expired!",
+          success: false,
+          errorCode: "fuck",
+        });
+    } else {
+      console.log(err);
+      res
+        .status(200)
+        .json({ message: "Internal Server Error", success: false });
+    }
   }
 });
 
@@ -233,12 +285,38 @@ app.post("/api/v1/expense/delete/", async (req, res) => {
             .json({ message: "Internal Server Error", success: false });
         }
       } else {
-        res.status(200).json({ message: "Session Expired!", success: false });
+        res
+          .status(200)
+          .json({
+            message: "Session Expired!",
+            success: false,
+            errorCode: "fuck",
+          });
       }
+    } else {
+      res
+        .status(200)
+        .json({
+          message: "Session Expired!",
+          success: false,
+          errorCode: "fuck",
+        });
     }
   } catch (err) {
-    console.log(err);
-    res.status(200).json({ message: "Internal Server Error", success: false });
+    if (err.name === "JsonWebTokenError") {
+      res
+        .status(200)
+        .json({
+          message: "Session Expired!",
+          success: false,
+          errorCode: "fuck",
+        });
+    } else {
+      console.log(err);
+      res
+        .status(200)
+        .json({ message: "Internal Server Error", success: false });
+    }
   }
 });
 

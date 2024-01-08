@@ -1,6 +1,8 @@
 import "./MainPageHeader.css";
 
-const MainPageHeader = () => {
+import LogoutButton from "./LogoutButton";
+
+const MainPageHeader = (props) => {
   const reload = () => {
     window.location.reload();
   };
@@ -19,6 +21,7 @@ const MainPageHeader = () => {
           Expense<span class="highlight">Tracker</span>
         </h2>
       </div>
+      <LogoutButton onLogout={props.onLogout}/>
     </div>
   );
 };

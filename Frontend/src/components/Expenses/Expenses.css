@@ -16,19 +16,6 @@
   max-height: calc(100vh - 620px);
 }
 
-body {
-	animation: gradient 3s forwards;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 0%;
-	}
-	100% {
-		background-position: 100% 100%;
-	}
-}
-
 @media (min-width: 754px) and (max-width: 830) {
   .expenses-cover {
     max-height: calc(100vh - 609px);
